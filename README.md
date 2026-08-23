@@ -1,102 +1,107 @@
 # Customer Data Pipeline
 
-Proyecto de Ingeniería de Datos desarrollado con PySpark.
+## Sobre el proyecto
 
-## Descripción General
+Este fue uno de mis primeros proyectos utilizando PySpark para construir un pipeline completo de procesamiento de datos.
 
-Este proyecto simula un pipeline completo de procesamiento de datos:
+La idea fue trabajar con un dataset de clientes bancarios y recorrer las etapas más habituales de un flujo de datos: validación, transformación y generación de una salida preparada para ser utilizada posteriormente en análisis o procesos de negocio.
 
-CSV
-→ Validación de Datos
-→ Transformaciones de Negocio
-→ Parquet
+Durante el desarrollo realicé controles básicos de calidad de datos, construí nuevas variables y generé un dataset final en formato Parquet.
 
-## Dataset
+---
 
-Bank Customer Churn Prediction Dataset
+## Dataset utilizado
 
-## Tecnologías Utilizadas
+Para este proyecto utilicé el dataset **Bank Customer Churn Prediction**.
+
+El conjunto de datos contiene información de clientes bancarios e incluye variables relacionadas con edad, país, saldo, actividad, uso de productos y abandono de clientes.
+
+---
+
+## Tecnologías utilizadas
 
 - Python
 - PySpark
 - Pandas
 - PostgreSQL
 - Parquet
+- Git
+- GitHub
 
-## Validación de Datos
+---
 
-Antes de realizar las transformaciones se ejecutaron controles de calidad sobre el dataset.
+## Validaciones realizadas
 
-### Conteo de Registros
+Antes de aplicar cualquier transformación revisé la calidad de los datos para asegurarme de que el dataset estuviera en condiciones de ser procesado.
 
-Se verificó la cantidad total de registros.
+Las comprobaciones realizadas fueron:
 
-- Total de registros: 10.000
+- Conteo total de registros.
+- Conteo de columnas.
+- Búsqueda de valores nulos.
+- Búsqueda de registros duplicados.
 
-### Conteo de Columnas
+Resultados obtenidos:
 
-Se validó la estructura del dataset.
+```text
+Total de registros: 10.000
+Total de columnas: 12
+Valores nulos: 0
+Registros duplicados: 0
+```
 
-- Total de columnas: 12
-
-### Validación de Nulos
-
-Se verificó la existencia de valores nulos en todas las columnas.
-
-- No se detectaron valores nulos.
-
-### Validación de Duplicados
-
-Se verificó la existencia de registros duplicados.
-
-- No se detectaron registros duplicados.
-
-## Evidencia de Validaciones
+### Evidencia
 
 images/validation_results.png
 
-## Validación de Valores Nulos
-
 images/null_check.png
 
-## Transformaciones de Negocio
+---
 
-### churn_desc
+## Transformaciones aplicadas
 
-Se creó una descripción amigable para el indicador de abandono de clientes.
+Una vez validada la información se crearon algunas variables adicionales para enriquecer el análisis.
+
+### Clasificación de abandono de clientes
+
+A partir de la variable original `churn` se creó una descripción más amigable.
 
 | churn | churn_desc |
 |--------|-------------|
 | 0 | Activo |
 | 1 | Abandono |
 
-### age_group
+### Segmentación por rango de edad
 
-Se realizó una segmentación de clientes por grupo etario.
+También se añadió una clasificación sencilla para agrupar clientes por edad.
 
 | Edad | Grupo |
-|-------|--------|
-| < 30 | Young |
-| 30 - 49 | Adult |
-| >= 50 | Senior |
+|--------|--------|
+| Menor a 30 años | Young |
+| Entre 30 y 49 años | Adult |
+| 50 años o más | Senior |
 
-## Análisis de Negocio
+---
+
+## Resultado obtenido
+
+Después de aplicar las transformaciones se realizó una exploración básica del churn por grupo etario.
 
 images/churn_by_age_group.png
 
-## Resultado
+---
 
-El resultado final del procesamiento se almacena en formato Parquet:
+## Salida generada
+
+El resultado final del procesamiento se almacenó en formato Parquet.
 
 ```text
 data/curated/customer_churn.parquet
 ```
 
-## Estructura del Proyecto
+---
 
-images/project_structure.png
-
-## Estructura del Repositorio
+## Organización del proyecto
 
 ```text
 customer-data-pipeline
@@ -122,10 +127,24 @@ customer-data-pipeline
 └── README.md
 ```
 
-## Resultados Obtenidos
+---
 
-- Ingesta de datos mediante PySpark.
-- Validación de registros, columnas, nulos y duplicados.
-- Aplicación de reglas de negocio.
-- Generación de salida optimizada en formato Parquet.
-- Simulación de un flujo real de Ingeniería de Datos.
+## Qué me dejó esta práctica
+
+Con este proyecto pude reforzar varios conceptos que aparecen frecuentemente en tareas de Data Engineering:
+
+- Procesamiento de datos utilizando PySpark.
+- Validaciones de calidad antes de transformar información.
+- Creación de reglas de negocio sobre DataFrames.
+- Generación de resultados en formato Parquet.
+- Organización y documentación de proyectos utilizando Git y GitHub.
+
+---
+
+## Autor
+
+Roger Antequera
+
+Data Engineer
+
+Python | SQL | PySpark | PostgreSQL
