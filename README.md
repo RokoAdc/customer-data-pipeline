@@ -1,21 +1,21 @@
 # Customer Data Pipeline
 
-A Data Engineering project built with PySpark.
+Proyecto de Ingeniería de Datos desarrollado con PySpark.
 
-## Overview
+## Descripción General
 
-This project simulates a complete data engineering pipeline:
+Este proyecto simula un pipeline completo de procesamiento de datos:
 
 CSV
-→ Data Validation
-→ Business Transformations
+→ Validación de Datos
+→ Transformaciones de Negocio
 → Parquet
 
 ## Dataset
 
 Bank Customer Churn Prediction Dataset
 
-## Technologies
+## Tecnologías Utilizadas
 
 - Python
 - PySpark
@@ -23,80 +23,80 @@ Bank Customer Churn Prediction Dataset
 - PostgreSQL
 - Parquet
 
-## Data Validation
+## Validación de Datos
 
-The dataset was validated before any transformation.
+Antes de realizar las transformaciones se ejecutaron controles de calidad sobre el dataset.
 
-### Row Count
+### Conteo de Registros
 
-Validated total number of records:
+Se verificó la cantidad total de registros.
 
-- Total Rows: 10,000
+- Total de registros: 10.000
 
-### Column Count
+### Conteo de Columnas
 
-Validated dataset structure:
+Se validó la estructura del dataset.
 
-- Total Columns: 12
+- Total de columnas: 12
 
-### Null Check
+### Validación de Nulos
 
-Validated missing values across all columns:
+Se verificó la existencia de valores nulos en todas las columnas.
 
-- No null values detected
+- No se detectaron valores nulos.
 
-### Duplicate Check
+### Validación de Duplicados
 
-Validated duplicate records:
+Se verificó la existencia de registros duplicados.
 
-- No duplicate records detected
+- No se detectaron registros duplicados.
 
-## Validation Evidence
+## Evidencia de Validaciones
 
 images/validation_results.png
 
-## Null Check Validation
+## Validación de Valores Nulos
 
 images/null_check.png
 
-## Business Transformations
+## Transformaciones de Negocio
 
 ### churn_desc
 
-Business-friendly description of churn status:
+Se creó una descripción amigable para el indicador de abandono de clientes.
 
 | churn | churn_desc |
 |--------|-------------|
-| 0 | Active |
-| 1 | Churned |
+| 0 | Activo |
+| 1 | Abandono |
 
 ### age_group
 
-Customer segmentation by age:
+Se realizó una segmentación de clientes por grupo etario.
 
-| Age | Group |
-|-----|--------|
+| Edad | Grupo |
+|-------|--------|
 | < 30 | Young |
 | 30 - 49 | Adult |
 | >= 50 | Senior |
 
-## Business Analysis
+## Análisis de Negocio
 
 images/churn_by_age_group.png
 
-## Output
+## Resultado
 
-Generated Parquet dataset:
+El resultado final del procesamiento se almacena en formato Parquet:
 
 ```text
 data/curated/customer_churn.parquet
 ```
 
-## Project Structure
+## Estructura del Proyecto
 
 images/project_structure.png
 
-## Repository Structure
+## Estructura del Repositorio
 
 ```text
 customer-data-pipeline
@@ -122,11 +122,10 @@ customer-data-pipeline
 └── README.md
 ```
 
-## Key Outcomes
+## Resultados Obtenidos
 
-- Ingested CSV data using PySpark
-- Performed data validation checks
-- Verified null values and duplicate records
-- Applied business transformations
-- Generated Parquet output
-- Simulated a real Data Engineering workflow
+- Ingesta de datos mediante PySpark.
+- Validación de registros, columnas, nulos y duplicados.
+- Aplicación de reglas de negocio.
+- Generación de salida optimizada en formato Parquet.
+- Simulación de un flujo real de Ingeniería de Datos.
